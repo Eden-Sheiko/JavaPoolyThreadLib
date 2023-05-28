@@ -8,24 +8,26 @@ public class TaskImpl implements Task {
     }
 
     public TaskImpl(){
-        this(0);  // This calls the other constructor
+        this(0);
     }
 
     @Override
     public void perform() {
-        // Implementation of the perform method
-        System.out.println("job");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Performing task with priority: " + priority);
     }
 
     @Override
     public void setPriority(int level) {
-        // Implementation of the setPriority method
         this.priority = level;
     }
 
     @Override
     public int getPriority() {
-        // Implementation of the getPriority method
         return this.priority;
     }
 }
